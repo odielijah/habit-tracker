@@ -1,6 +1,7 @@
 # Habit Tracker PWA
 
 A mobile-first Progressive Web App for tracking daily habits, built with Next.js, TypeScript, and Tailwind CSS.
+[View Live Demo](https://vercel.com/odielijahs-projects/habit-tracker/EastCtt5BWksxwK6sPuru6nFAQWe)
 
 ## Project Overview
 
