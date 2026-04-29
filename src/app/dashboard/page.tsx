@@ -95,7 +95,7 @@ export default function DashboardPage() {
       <button
         data-testid="create-habit-button"
         onClick={() => setIsFormOpen(true)}
-        className="fixed bottom-8 left-1/2 -translate-x-1/2 bg-black text-white px-8 py-4 rounded-full font-bold shadow-xl active:scale-95 transition-transform"
+        className="fixed bottom-8 left-1/2 -translate-x-1/2 bg-black text-[14px] md:text-[16px] text-white px-4 py-2 md:px-8 md:py-4 rounded-full font-bold shadow-xl active:scale-95 transition-transform"
       >
         + Add New Habit
       </button>

@@ -43,47 +43,49 @@ export default function HabitCard({
           : "bg-white border-gray-200"
       }`}
     >
-      <div className="flex justify-between items-start">
-        <div>
-          <h3 className="font-bold text-lg text-gray-900">{habit.name}</h3>
-          <p className="text-sm text-gray-500">{habit.description}</p>
-          <div className="mt-2 flex items-center gap-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">
-              Current Streak:
-            </span>
-            <span
-              data-testid={`habit-streak-${slug}`}
-              className="font-bold text-black"
+      <div className="flex flex-col justify-between items-start">
+        <div className="flex justify-between items-start w-full">
+          <div>
+            <h3 className="font-bold text-lg text-gray-900">{habit.name}</h3>
+            <p className="text-sm text-gray-500">{habit.description}</p>
+          </div>
+
+          <div className="flex gap-1 md:gap-2">
+            <button
+              onClick={() => onEdit(habit)}
+              data-testid={`habit-edit-${slug}`}
+              className="p-2 text-[14px] md:text-[16px] text-gray-400 hover:text-black transition-colors"
+              aria-label="Edit habit"
             >
-              {streak} {streak === 1 ? "day" : "days"}
-            </span>
+              Edit
+            </button>
+            <button
+              onClick={handleDelete}
+              data-testid={`habit-delete-${slug}`}
+              className="p-2 text-[14px] md:text-[16px] text-gray-400 hover:text-red-600 transition-colors"
+              aria-label="Delete habit"
+            >
+              Delete
+            </button>
           </div>
         </div>
-
-        <div className="flex gap-2">
-          <button
-            onClick={() => onEdit(habit)}
-            data-testid={`habit-edit-${slug}`}
-            className="p-2 text-gray-400 hover:text-black transition-colors"
-            aria-label="Edit habit"
+        <div className="mt-2 flex items-center gap-2">
+          <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+            Current Streak:
+          </span>
+          <span
+            data-testid={`habit-streak-${slug}`}
+            className="font-bold text-black"
           >
-            Edit
-          </button>
-          <button
-            onClick={handleDelete}
-            data-testid={`habit-delete-${slug}`}
-            className="p-2 text-gray-400 hover:text-red-600 transition-colors"
-            aria-label="Delete habit"
-          >
-            Delete
-          </button>
+            {streak} {streak === 1 ? "day" : "days"}
+          </span>
         </div>
       </div>
 
       <button
         onClick={handleToggle}
         data-testid={`habit-complete-${slug}`}
-        className={`mt-4 w-full py-3 rounded-lg font-bold transition-all ${
+        className={`mt-4 w-full py-2 rounded-lg text-[14px] md:text-[16px] font-bold transition-all ${
           isCompletedToday
             ? "bg-green-600 text-white shadow-inner"
             : "bg-gray-100 text-gray-900 hover:bg-gray-200"
@@ -96,13 +98,13 @@ export default function HabitCard({
           <button
             data-testid="confirm-delete-button"
             onClick={() => onDelete(habit.id)}
-            className="flex-1 py-2 bg-red-600 text-white rounded font-bold"
+            className="flex-1 p-2 text-[14px] md:text-[16px] bg-red-600 text-white rounded font-bold"
           >
             Confirm Delete
           </button>
           <button
             onClick={() => setConfirmingDelete(false)}
-            className="flex-1 py-2 border rounded"
+            className="flex-1 text-[14px] md:text-[16px] py-2 border rounded"
           >
             Cancel
           </button>
